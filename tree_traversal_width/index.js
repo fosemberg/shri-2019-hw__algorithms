@@ -43,5 +43,6 @@ const tree = {
   }
 };
 
+console.log('tree: ', tree);
 console.log(treeTraversalWidth(tree, 0));
 
