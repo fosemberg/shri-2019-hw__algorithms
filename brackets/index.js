@@ -16,17 +16,20 @@ const bracket2 = {
 
 const checkIsBracket2 = genCheckIsBracket(bracket2);
 
-const checkIsOpenBracket = letter => `${bracket1.open}${bracket2.open}`.includes(letter);
-const checkIsCloseBracket = letter => `${bracket1.close}${bracket2.close}`.includes(letter);
+const bracket3 = {
+  open: '<',
+  close: '>',
+};
+
+const checkIsBracket3 = genCheckIsBracket(bracket3);
+
+const checkIsOpenBracket = letter => `${bracket1.open}${bracket2.open}${bracket3.open}`.includes(letter);
+const checkIsCloseBracket = letter => `${bracket1.close}${bracket2.close}${bracket3.close}`.includes(letter);
 
 const isBracketsOneType = (letter1, letter2) =>
   (checkIsBracket1(letter1) && checkIsBracket1(letter2)) ||
-  (checkIsBracket2(letter1) && checkIsBracket2(letter2));
-
-// bracket1_open = '<';
-// bracket1_close = '>';
-// bracket1_open = '{';
-// bracket1_close = '}';
+  (checkIsBracket2(letter1) && checkIsBracket2(letter2)) ||
+  (checkIsBracket3(letter1) && checkIsBracket3(letter2));
 
 const checkIsBracket = letter =>
   checkIsOpenBracket(letter) ||
@@ -43,11 +46,6 @@ const checkBrackets = str => {
           return false;
         }
       }
-      // if (stack.length === 0) {
-      //   stack.push(letter);
-      // } else {
-      //   const bracket = stack.pop();
-      // }
     }
   }
   return stack.length === 0;
@@ -58,6 +56,8 @@ tests = [
   '(((sdf',
   '[]()(())[sdf]',
   '[]()(())[sdf',
+  '<>()<<>>[sdf',
+  '<>()(())<sdf>',
 ];
 
 tests.forEach(test => {
