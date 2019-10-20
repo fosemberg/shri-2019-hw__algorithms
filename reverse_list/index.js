@@ -20,5 +20,5 @@ const reverseList = (list, stack = []) => {
     : stack.reduce((accum, v) => addNext(accum, v), {});
 };
 
-console.log(list);
-console.log(reverseList(list));
+console.log('list: ', list);
+console.log('reverseList: ', reverseList(list));
