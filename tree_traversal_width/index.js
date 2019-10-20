@@ -44,5 +44,11 @@ const tree = {
 };
 
 console.log('tree: ', tree);
-console.log('width tree:', treeTraversalWidth(tree, 0));
+const treeWidth =  treeTraversalWidth(tree, 0);
+console.log('tree width:', treeWidth);
+for (let floor of treeWidth) {
+  for (let el of floor) {
+    console.log(el);
+  }
+}
 
