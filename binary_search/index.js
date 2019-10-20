@@ -1,20 +1,28 @@
-const binarySearch = (arr, findNum) => {
-  const middle = ~~(arr.length / 2);
-  const target = arr[middle];
-  if (target === findNum) {
-    return target;
+const binarySearch = (arr, findNum, fromTo = [0, arr.length]) => {
+  const length = fromTo[1] - fromTo[0];
+  const middle = fromTo[0] + ~~(length / 2);
+  const targetValue = arr[middle];
+  if (targetValue === findNum) {
+    return middle;
   } else {
-    if (arr.length === 1) {
-      return false;
+    if (length === 1) {
+      return -1;
     }
-    if (findNum < target) {
-      return binarySearch(arr.slice(0, middle), findNum);
+    let _fromTo;
+    if (findNum < targetValue) {
+      _fromTo = [fromTo[0], middle];
+      return binarySearch(arr, findNum, _fromTo);
     } else {
-      return binarySearch(arr.slice(middle), findNum);
+      _fromTo = [middle, fromTo[1]];
+      return binarySearch(arr, findNum, _fromTo);
     }
+
   }
 };
 
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 10, 15, 17, 18];
+tests = [1, 5, 6, 11, 12, 17, 18];
 
-console.log(binarySearch(arr, 17));
+tests.forEach(test => {
+  console.log(`${test}: ${binarySearch(arr, test)}`);
+});
