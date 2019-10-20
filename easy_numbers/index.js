@@ -14,15 +14,13 @@ const memo = fn => {
   }
 };
 
-const withMeasureSpeed = fn => {
-  return (...args) => {
-    let start = new Date().getTime();
-    const result = fn(...args);
-    let end = new Date().getTime();
-    const tookTime = end - start;
-    log(`Took time: ${tookTime}`);
-    return result;
-  }
+const withMeasureSpeed = fn => (...args) => {
+  let start = new Date().getTime();
+  const result = fn(...args);
+  let end = new Date().getTime();
+  const tookTime = end - start;
+  log(`Took time: ${tookTime}`);
+  return result;
 };
 
 const isNoRestAfterDivision = (num1, num2) => num1 % num2 === 0;
