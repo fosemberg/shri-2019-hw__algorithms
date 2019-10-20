@@ -20,5 +20,5 @@ const maxSubSum = arr => {
 };
 
 const arr = [-4, 2, 0, 5, 0, 3, -9, 10, 11, 4];
-
-console.log(maxSubSum(arr));
+console.log('arr: ', arr);
+console.log('maxSubSum: ', maxSubSum(arr));
