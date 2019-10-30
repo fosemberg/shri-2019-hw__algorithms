@@ -1,5 +1,3 @@
-const log = console.log;
-
 const memo = fn => {
   const cache = {};
   return (...args) => {
@@ -19,7 +17,7 @@ const withMeasureSpeed = fn => (...args) => {
   const result = fn(...args);
   let end = new Date().getTime();
   const tookTime = end - start;
-  log(`Took time: ${tookTime}`);
+  console.log(`Took time: ${tookTime}`);
   return result;
 };
 
@@ -51,6 +49,6 @@ const getEasyNumbers = (numbers) => {
 
 const getEasyNumbersWithMeasureSpeed = withMeasureSpeed(getEasyNumbers);
 
-log(getEasyNumbersWithMeasureSpeed(500));
-log(getEasyNumbersWithMeasureSpeed(500));
+console.log(getEasyNumbersWithMeasureSpeed(500));
+console.log(getEasyNumbersWithMeasureSpeed(500));
 
