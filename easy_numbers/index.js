@@ -15,11 +15,9 @@ const memo = fn => {
 };
 
 const withMeasureSpeed = fn => (...args) => {
-  let start = new Date().getTime();
+  console.time('Took time');
   const result = fn(...args);
-  let end = new Date().getTime();
-  const tookTime = end - start;
-  console.log(`Took time: ${tookTime}`);
+  console.timeEnd('Took time');
   return result;
 };
 
