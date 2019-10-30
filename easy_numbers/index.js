@@ -1,3 +1,5 @@
+console.log('Easy_numbers');
+
 const memo = fn => {
   const cache = {};
   return (...args) => {
